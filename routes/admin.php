@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ApplicantController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\EmployeeController;
+use App\Http\Controllers\Admin\InterviewController;
 use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +26,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('/users', UserController::class);
     Route::resource('/employees', EmployeeController::class);
     Route::resource('/jobs', JobController::class);
-    Route::resource('/interviews', JobController::class);
+    Route::resource('/interviews', InterviewController::class);
+    Route::resource('/applicants', ApplicantController::class);
+
+    Route::get('/applicants', [ApplicantController::class, 'index'])->name('applicants');
+    Route::get('/delete/application/{application}', [ApplicantController::class, 'destroy'])->name('destroy.applicants');
+    Route::get('/call-for-interview/{job}/{applicant}', [InterviewController::class, 'create'])->name('call-for-interview');
 });
 

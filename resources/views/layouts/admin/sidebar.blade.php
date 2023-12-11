@@ -46,7 +46,7 @@
                     <ul>
                         <li><a href="notification.html">Pending Interviews</a></li>
                         <li><a href="progress.html">Completed Interviews</a></li>
-                        <li><a href="carousel.html">All Interviews</a></li>
+                        <li><a href="{{route('admin.interviews.index')}}">All Interviews</a></li>
                     </ul>
                 </li>
             </ul>
@@ -57,9 +57,10 @@
                 <span>Job Applications</span>
             </a>
             <ul>
-                <li><a href="mail_box.html">Mail Box</a></li>
+                <li><a href="{{route('admin.applicants')}}">All Applicants</a></li>
+                {{-- <li><a href="mail_box.html">Mail Box</a></li>
                 <li><a href="chat.html">Chat</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="faq.html">FAQ</a></li> --}}
             </ul>
         </li>
         {{-- Employees --}}

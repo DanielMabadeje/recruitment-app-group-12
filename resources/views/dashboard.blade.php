@@ -45,7 +45,7 @@
                               <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>{{$applicant->job()->title}}</td>
+                                    <td>{{$applicant->job()->first()->title}}</td>
                                     <td>Otto</td>
                                     <td>{{$applicant->cover_letter}}</td>
                                 </tr>
@@ -69,7 +69,6 @@
                                 <tr>
                                   <th scope="col">#</th>
                                   <th scope="col">Job Title</th>
-                                  <th scope="col">Last</th>
                                   <th scope="col">Status</th>
                                   <th scope="col">Interview Date</th>
                                 </tr>
@@ -77,8 +76,7 @@
                               <tbody>
                                 <tr>
                                   <th scope="row">1</th>
-                                  <td>{{$interview->job()->title}}</td>
-                                  <td>Otto</td>
+                                  <td>{{$interview->job->title}}</td>
                                   <td>{{$interview->status}}</td>
                                   <td>{{$interview->interview_date}}</td>
                                 </tr>
@@ -113,7 +111,7 @@
                     @empty
                         <div class=" overflow-hidden shadow-sm sm:rounded-lg">
                             <div class="p-6">
-                                {{ __("No Jobs A this Time (Bring Deals)💔") }}
+                                {{ __("No Jobs At this Time (Bring Deals)💔") }}
                             </div>
                         </div>
                     @endforelse

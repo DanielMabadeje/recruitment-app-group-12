@@ -22,9 +22,19 @@ class Applicant extends Model
         self::REJECTED => 'Rejected',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
     public function job()
     {
         return $this->belongsTo(Job::class);
+    }
+
+    public function interview()
+    {
+        return $this->belongsTo(Interview::class);
     }
 
     public function displayStatus()

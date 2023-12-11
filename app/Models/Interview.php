@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Interview extends Model
 {
+    protected $guarded = [];
     use HasFactory;
     const SCHEDULED = 1;
     const COMPLETED = 2;
@@ -62,6 +63,16 @@ class Interview extends Model
     public function scopeScheduled(Builder $query)
     {
         return $query->where('status', 1);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function job()
+    {
+        return $this->belongsTo(Job::class);
     }
     
 }

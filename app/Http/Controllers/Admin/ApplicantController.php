@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Applicant;
 use App\Models\Job;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ApplicantController extends Controller
 {
@@ -13,7 +15,7 @@ class ApplicantController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.applicants.index', ['applicants'=>Applicant::paginate()]);
     }
 
     /**
@@ -37,18 +39,18 @@ class ApplicantController extends Controller
             return redirect()->route('dashboard');
         } catch (\Throwable $th) {
             //throw $th;
-            dd($th);
+            // dd($th);
             return redirect()->back()->withErrors($th)->withInput();
         }
-        dd($request);
+        // dd($request);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Applicant $applicant)
+    public function show(Applicant $applicant) : View
     {
-        //
+        return view('admin.applicants.show', ['applicant'=>$applicant]);
     }
 
     /**
@@ -72,6 +74,9 @@ class ApplicantController extends Controller
      */
     public function destroy(Applicant $applicant)
     {
-        //
+        if ($applicant->delete()) {
+            return redirect()->back()->with('success', 'Application Deleted Successfully 🙌🏽');
+        }
+        return redirect()->back()->with('fail', 'Unable to Delete Application 🙌🏽');
     }
 }
