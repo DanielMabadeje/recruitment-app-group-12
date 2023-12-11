@@ -32,5 +32,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/applicants', [ApplicantController::class, 'index'])->name('applicants');
     Route::get('/delete/application/{application}', [ApplicantController::class, 'destroy'])->name('destroy.applicants');
     Route::get('/call-for-interview/{job}/{applicant}', [InterviewController::class, 'create'])->name('call-for-interview');
+
+    Route::get('employ/{applicant}', [ApplicantController::class, 'hire'])->name('applicant.hire');
+    Route::get('reject/{applicant}', [ApplicantController::class, 'reject'])->name('applicant.reject');
 });
 

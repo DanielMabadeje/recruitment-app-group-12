@@ -42,12 +42,19 @@
                                             <td>{{$interview->job->title}}</td>
                                             <td>{{$interview->user->email}}</td>
                                             <td>{{$interview->user->phone_no}}</td>
-                                            <td><a href="#" class="status_btn">Active</a></td>
+                                            <td>{!! $interview->displayStatus() !!}</td>
                                             <td>
                                                 <div class="d-flex">
-                                                    {{-- <a href="{{route('admin.interviews.show', $interview)}}" class="btn btn-primary text-white m-2">View</a> --}}
-                                                    {{-- <a href="" class="btn btn-primary text-white m-2">Call for Interview</a> --}}
-                                                    {{-- <a href="{{route('admin.destroy.interviews', $interview)}}" class="btn btn-danger text-white m-2">Delete</a> --}}
+                                                    @if($interview->applicant->isAccepted())
+                                                    Applicant already Hired
+                                                @elseif ($interview->applicant->isRejected())
+                                                    Applicant Rejected
+                                                @else
+                                                <div class="d-flex">
+                                                    <a href="{{route('admin.applicant.hire', $interview->applicant)}}" class="text-success m-2"><i class="fa fa-check"></i></a>
+                                                    <a href="{{route('admin.applicant.reject', $interview->applicant)}}" class="text-danger m-2"><i class="fa fa-times"></i></a>
+                                                </div>
+                                                @endif
                                                 </div>
                                             </td>
                                         </tr>

@@ -49,12 +49,18 @@
                                             <td>{{$applicant->job->title}}</td>
                                             <td>{{$applicant->user->email}}</td>
                                             <td>{{$applicant->user->phone_no}}</td>
-                                            <td><a href="#" class="status_btn">Active</a></td>
+                                            <td>{!!$applicant->displayStatus()!!}</td>
                                             <td>
+                                                @if($applicant->isAccepted())
+                                                    Applicant already Hired
+                                                @elseif ($applicant->isRejected())
+                                                    Applicant Rejected
+                                                @else
                                                 <div class="d-flex">
-                                                    <a href="{{route('admin.applicants.show', $applicant)}}" class="text-success m-2"><i class="fa fa-check"></i></a>
-                                                    <a href="{{route('admin.destroy.applicants', $applicant)}}" class="text-danger m-2"><i class="fa fa-times"></i></a>
+                                                    <a href="{{route('admin.applicant.hire', $applicant)}}" class="text-success m-2"><i class="fa fa-check"></i></a>
+                                                    <a href="{{route('admin.applicant.reject', $applicant)}}" class="text-danger m-2"><i class="fa fa-times"></i></a>
                                                 </div>
+                                                @endif
                                             </td>
                                             <td>
                                                 <div class="d-flex">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Applicant;
+use App\Models\Employee;
 use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -78,5 +79,26 @@ class ApplicantController extends Controller
             return redirect()->back()->with('success', 'Application Deleted Successfully 🙌🏽');
         }
         return redirect()->back()->with('fail', 'Unable to Delete Application 🙌🏽');
+    }
+
+    public function hire(Applicant $applicant)
+    {
+        
+        if ($applicant->accept()) {
+            Employee::create([
+                'user_id'=>$applicant->user_id,
+                'position'=>$applicant->job->title
+            ]);
+            return redirect()->route('admin.applicants')->with('success', 'Applicant Employed Successfully');
+        }
+        return redirect()->route('admin.applicants')->with('error', 'Unable to Employ Applicant');
+    }
+
+    public function reject(Applicant $applicant)
+    {
+        if ($applicant->reject()) {
+            return redirect()->route('admin.applicants')->with('success', 'Applicant Rejected Successfully');
+        }
+        return redirect()->route('admin.applicants')->with('error', 'Unable to Employ Applicant');
     }
 }

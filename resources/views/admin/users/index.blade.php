@@ -59,14 +59,6 @@
                                                 style="width: 75px;"
                                                 aria-label="Enrolled: activate to sort column ascending">Phone Number
                                             </th>
-                                            <th scope="col" class="sorting" tabindex="0"
-                                                aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                style="width: 56px;"
-                                                aria-label="Price: activate to sort column ascending">Price</th>
-                                            <th scope="col" class="sorting" tabindex="0"
-                                                aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                style="width: 84px;"
-                                                aria-label="Status: activate to sort column ascending">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -78,8 +70,6 @@
                                             <td>{{$user->role->name}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>{{$user->phone_no}}</td>
-                                            <td>$25.00</td>
-                                            <td><a href="#" class="status_btn">Active</a></td>
                                         </tr>
 
                                         @empty

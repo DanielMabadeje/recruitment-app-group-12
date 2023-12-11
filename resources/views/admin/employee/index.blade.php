@@ -13,22 +13,6 @@
                     <div class="QA_section">
                         <div class="white_box_tittle list_header">
                             <h4>Employees</h4>
-                            <div class="box_right d-flex lms_block">
-                                <div class="serach_field_2">
-                                    <div class="search_inner">
-                                        <form active="#">
-                                            <div class="search_field">
-                                                <input type="text" placeholder="Search content here...">
-                                            </div>
-                                            <button type="submit"> <i class="ti-search"></i> </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="add_button ms-2">
-                                    <a href="{{route('admin.users.create')}}"  class="btn_1">Add
-                                        New Employee</a>
-                                </div>
-                            </div>
                         </div>
                         <div class="QA_table ">
 
@@ -52,6 +36,10 @@
                                                 aria-label="Teacher: activate to sort column ascending">Role</th>
                                             <th scope="col" class="sorting" tabindex="0"
                                                 aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                style="width: 110px;"
+                                                aria-label="Teacher: activate to sort column ascending">Job Title</th>
+                                            <th scope="col" class="sorting" tabindex="0"
+                                                aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                 style="width: 108px;"
                                                 aria-label="Lesson: activate to sort column ascending">Email</th>
                                             <th scope="col" class="sorting" tabindex="0"
@@ -59,14 +47,7 @@
                                                 style="width: 75px;"
                                                 aria-label="Enrolled: activate to sort column ascending">Phone Number
                                             </th>
-                                            <th scope="col" class="sorting" tabindex="0"
-                                                aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                style="width: 56px;"
-                                                aria-label="Price: activate to sort column ascending">Price</th>
-                                            <th scope="col" class="sorting" tabindex="0"
-                                                aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                style="width: 84px;"
-                                                aria-label="Status: activate to sort column ascending">Status</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -76,10 +57,11 @@
                                                     class="question_content">{{$employee->user->name}}</a></th>
                                             <td>{{$employee->user->getFullName()}}</td>
                                             <td>{{$employee->user->role->name}}</td>
+                                            <td>{{$employee->position}}</td>
                                             <td>{{$employee->user->email}}</td>
                                             <td>{{$employee->user->phone_no}}</td>
-                                            <td>$25.00</td>
-                                            <td><a href="#" class="status_btn">Active</a></td>
+                                            {{-- <td>$25.00</td>
+                                            <td><a href="#" class="status_btn">Active</a></td> --}}
                                         </tr>
 
                                         @empty

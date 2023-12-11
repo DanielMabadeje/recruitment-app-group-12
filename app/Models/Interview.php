@@ -22,7 +22,23 @@ class Interview extends Model
 
     public function displayStatus()
     {
-        return 'incoming';
+        $status= $this->statusList[$this->status];
+        switch ($this->status) {
+            case '0':
+                return "<div class='badge badge-pill badge-secondary'>$status</div>";
+                break;
+            case '1':
+                return "<div class='badge badge-pill badge-primary'>$status</div>";
+                break;
+            case '2':
+                return "<div class='badge badge-pill badge-success'>$status</div>";
+                break;
+            
+            default:
+                return "<div class='badge badge-pill badge-danger'>Omor your own bad ooh🥲</div>";
+                break;
+        }
+
     }
 
     public function schedule()
@@ -68,6 +84,11 @@ class Interview extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function applicant()
+    {
+        return $this->belongsTo(Applicant::class, 'application_id');
     }
 
     public function job()
