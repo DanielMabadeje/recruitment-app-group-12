@@ -45,16 +45,16 @@
                                             <td>{!! $interview->displayStatus() !!}</td>
                                             <td>
                                                 <div class="d-flex">
-                                                    @if($interview->applicant->isAccepted())
+                                                    {{-- @if($interview->applicant()->first()->isAccepted()) --}}
                                                     Applicant already Hired
-                                                @elseif ($interview->applicant->isRejected())
+                                                {{-- @elseif ($interview->applicant()->first()->isRejected()) --}}
                                                     Applicant Rejected
-                                                @else
+                                                {{-- @else --}}
                                                 <div class="d-flex">
-                                                    <a href="{{route('admin.applicant.hire', $interview->applicant)}}" class="text-success m-2"><i class="fa fa-check"></i></a>
-                                                    <a href="{{route('admin.applicant.reject', $interview->applicant)}}" class="text-danger m-2"><i class="fa fa-times"></i></a>
+                                                    {{-- <a href="{{route('admin.applicant.hire', $interview->applicant)}}" class="text-success m-2"><i class="fa fa-check"></i></a>
+                                                    <a href="{{route('admin.applicant.reject', $interview->applicant)}}" class="text-danger m-2"><i class="fa fa-times"></i></a> --}}
                                                 </div>
-                                                @endif
+                                                {{-- @endif --}}
                                                 </div>
                                             </td>
                                         </tr>
