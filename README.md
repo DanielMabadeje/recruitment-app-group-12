@@ -6,13 +6,7 @@ Welcome to the repository for Group 12's School Project on the Recruitment Datab
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Features](#features)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Database Schema](#database-schema)
-6. [Technologies Used](#technologies-used)
-7. [Contributing](#contributing)
-8. [License](#license)
-
+3. [Database Schema](#database-schema)
 
 ## Introduction
 The Recruitment Database Management System is a comprehensive solution designed by Group 12 to address the challenges faced by organizations in managing their recruitment processes. Our system is built to facilitate the entire recruitment lifecycle, from job posting and candidate application to interview scheduling and final selection. It provides a robust platform for managing candidate and application information, job listings, and the overall recruitment workflow.
