@@ -40,6 +40,6 @@ Automated notifications for both candidates and recruiters, keeping everyone inf
 
 
 ## Database Schema
-We have meticulously designed the database schema to ensure optimal performance and data integrity. Check out the [Database Schema Documentation](docs/database-schema.md) for a detailed overview.
+We have meticulously designed the database schema to ensure optimal performance and data integrity. Check out the [Database Schema Documentation](db_assets/database-schema.md) for a detailed overview.
 
 Feel free to reach out to us if you have any questions or suggestions. Happy recruiting! 🚀
