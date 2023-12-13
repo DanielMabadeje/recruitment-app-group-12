@@ -8,12 +8,12 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="d-md-flex">
-                <div class="bg-white col-md-4 m-1 overflow-hidden shadow-sm sm:rounded-lg">
+                <a href="{{route('jobs.index')}}" class="bg-white col-md-4 m-1 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
                         <h2>{{ $jobscount }}</h2>
                         <p>Job Openings</p>
                     </div>
-                </div>
+                </a>
                 <div class="bg-white col-md-4 m-1 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
                         <h2>{{ $interviewscount }}</h2>
@@ -39,15 +39,15 @@
                                   <th scope="col">#</th>
                                   <th scope="col">Job Title</th>
                                   <th scope="col">Status</th>
-                                  <th scope="col">Cover Letter</th>
+                                  {{-- <th scope="col">Cover Letter</th> --}}
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>{{$applicant->job()->title}}</td>
-                                    <td>Otto</td>
-                                    <td>{{$applicant->cover_letter}}</td>
+                                    <td>{{$applicant->job()->first()->title}}</td>
+                                    <td>{!! $applicant->displayStatus() !!}</td>
+                                    {{-- <td>{{$applicant->cover_letter}}</td> --}}
                                 </tr>
 
                             </tbody>
@@ -69,7 +69,6 @@
                                 <tr>
                                   <th scope="col">#</th>
                                   <th scope="col">Job Title</th>
-                                  <th scope="col">Last</th>
                                   <th scope="col">Status</th>
                                   <th scope="col">Interview Date</th>
                                 </tr>
@@ -77,9 +76,8 @@
                               <tbody>
                                 <tr>
                                   <th scope="row">1</th>
-                                  <td>{{$interview->job()->title}}</td>
-                                  <td>Otto</td>
-                                  <td>{{$interview->status}}</td>
+                                  <td>{{$interview->job->title}}</td>
+                                  <td>{!! $interview->displayStatus() !!}</td>
                                   <td>{{$interview->interview_date}}</td>
                                 </tr>
                               </tbody>
@@ -113,7 +111,7 @@
                     @empty
                         <div class=" overflow-hidden shadow-sm sm:rounded-lg">
                             <div class="p-6">
-                                {{ __("No Jobs A this Time (Bring Deals)💔") }}
+                                {{ __("No Jobs At this Time (Bring Deals)💔") }}
                             </div>
                         </div>
                     @endforelse

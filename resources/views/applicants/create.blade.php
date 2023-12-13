@@ -11,7 +11,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Send Cover Letter</label>
-                    <textarea class="form-control" name="message" id="editor" rows="5"></textarea>
+                    <textarea class="form-control" name="cover_letter" id="editor" rows="5"></textarea>
                 </div>
 
                 <div class="form-group py-3">

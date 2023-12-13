@@ -27,8 +27,19 @@ class ApplicantController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
+        $data = $request->all();
+        $data['user_id'] = auth()->id();
+        $data['job_id'] = $id;
+        try {
+            Applicant::create($data);
+            return redirect()->route('dashboard');
+        } catch (\Throwable $th) {
+            //throw $th;
+            dd($th);
+            return redirect()->back()->withErrors($th)->withInput();
+        }
         dd($request);
     }
 
