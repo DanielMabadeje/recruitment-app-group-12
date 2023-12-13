@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Applicant;
 use App\Models\Interview;
+use App\Models\Job;
 use Illuminate\Http\Request;
 
 class InterviewController extends Controller
@@ -13,15 +15,18 @@ class InterviewController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.interview.index', ['interviews'=>Interview::all()]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Job $job, Applicant $applicant)
     {
-        //
+        return view('admin.interview.create',   [
+            'job'=>$job,
+            'applicant'=>$applicant,
+        ]);
     }
 
     /**
@@ -29,7 +34,17 @@ class InterviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['interviewer_id'] = auth()->id() ?? 1;
+
+        try {
+            Interview::create($data);
+            
+            return redirect()->route('admin.applicants')->with('success', 'Interview Scheduled Successfully 🔥');
+        } catch (\Throwable $th) {
+            dd($th);
+            return redirect()->back()->with('fail', 'Unable to Schedule interview 💔')->withInput();
+        }
     }
 
     /**
@@ -62,5 +77,10 @@ class InterviewController extends Controller
     public function destroy(Interview $interview)
     {
         //
+    }
+
+    public function callForinterview($job_id, $applicant_id)
+    {
+        dd($applicant_id);
     }
 }

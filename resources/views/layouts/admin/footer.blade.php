@@ -49,5 +49,7 @@
 <script src="{{asset('js/chartjs_active.js')}}"></script>
 
 <script>
-    let table = new DataTable('#listTable');
+    let table = new DataTable('#listTable', {
+        responsive: true
+    });
 </script>

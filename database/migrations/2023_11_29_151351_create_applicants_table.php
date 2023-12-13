@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->integer('user_id');
             $table->string('job_id');
-            $table->smallInteger('status')->default(1)->comment('0 = applied, 1 = in review, 2 = accepted, 3 = rejected');
+            $table->smallInteger('status')->default(0)->comment('0 = applied, 1 = in review, 2 = accepted, 3 = rejected');
             $table->string('resume');
             $table->longText('cover_letter');
             $table->timestamps();

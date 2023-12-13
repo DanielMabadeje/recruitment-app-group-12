@@ -53,7 +53,7 @@ class UsersTableSeeder extends Seeder
                 'first_name' => 'Daniel',
                 'last_name' => "Mabadeje",
                 'role_id' => $superadmin->id,
-                'email' => 'daniel@gmail.com',
+                'email' => 'daniel@group12.com',
                 'phone_no' => '+234123456789',
                 'password' => bcrypt('password')
             ]
@@ -64,7 +64,7 @@ class UsersTableSeeder extends Seeder
                 'first_name' => 'Abasifreke',
                 'last_name' => "Nkanang",
                 'role_id' => $superadmin->id,
-                'email' => 'chibuzor@veo.com',
+                'email' => 'abas@group12.com',
                 'phone_no' => '+234123456789',
                 'password' => bcrypt('password')
             ]

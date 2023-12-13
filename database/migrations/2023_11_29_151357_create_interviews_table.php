@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('job_id');
             $table->string('user_id');
+            $table->string('application_id');
             $table->string('interviewer_id');
             $table->date('interview_date');
             $table->smallInteger('status')->default(1)->comment('0 = pending, 1 = scheduled, 2 = completed');

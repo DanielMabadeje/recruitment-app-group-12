@@ -54,7 +54,7 @@ class User extends Authenticatable
         parent::boot();
 
         self::creating(function ($model) {
-            $model->id = Str::uuid()->toString();
+            // $model->id = Str::uuid()->toString();
             $model->role_id=$model->role_id ?: self::createRole();
         });
     }
@@ -69,9 +69,10 @@ class User extends Authenticatable
         return $this->hasMany(Job::class);
     }
 
-    public function interviews() : BelongsTo
+    public function interviews() : HasMany
     {
-        return $this->belongsTo(Interview::class);
+        // return $this->belongsTo(Interview::class);
+        return $this->hasMany(Interview::class);
     }
 
     public static function createRole(string $name = null): int
@@ -82,7 +83,7 @@ class User extends Authenticatable
 
     public function getFullName() : string
     {
-        return $this->first_name .' '. $this->last_name;
+        return ucfirst($this->first_name) .' '. ucfirst($this->last_name);
     }
 
     public function employee()
