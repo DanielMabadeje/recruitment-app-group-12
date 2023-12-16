@@ -83,6 +83,32 @@ between different tables.
 | created_at       | TIMESTAMP      | NOT NULL, DEFAULT CURRENT_TIMESTAMP|
 | updated_at       | TIMESTAMP      |                                   |
 
+## Entity Relationships
+
+1. One to Many Relationship between the users and jobs table
+- jobs.author_id references users.id
+
+2. Many to One Relationship between the users and roles table
+- users.role_id references roles.id
+
+3. One to Many Relationship between the users and employees table
+- employees.user_id references users.id
+
+4. One to Many Relationship between the users and the applicants table
+- applicants.user_id references users.id
+
+5. One to Many Relationship between the users and the interviews table
+- interviews.interviewer_id references users.id
+
+6. One to Many Relationship between the jobs and applicants table
+- applicants.job_id references jobs.id
+
+7. One to Many Relationship between the applicants and interviews table
+- interviews.application_id references applicants.id
+
+8. One to Many Relationship between the jobs and intervioews table
+- interviews.job_id references jobs.id
+
 For a more visual perspective, reference can be made to the entity relationship diagram below.
 
 ![ERD](ERD.png)
