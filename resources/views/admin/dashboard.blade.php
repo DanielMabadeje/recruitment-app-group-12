@@ -216,6 +216,13 @@
         </div>
     </div>
 
+    @php
+        // \App\Models\User::where()
+        $userData = \App\Models\User::whereBetween('created_at', ['2023-01-01', '2023-12-31'])
+                        ->count();
+                    // ->get(['created_at', 'id']);
+                    dd($userData);
+    @endphp
     @include('layouts.admin.dashboardfooter')
 </section>
 

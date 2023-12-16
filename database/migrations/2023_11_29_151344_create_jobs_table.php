@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_id')->nullable();
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->string('no_of_positions')->default(0);
             $table->date('application_deadline')->nullable();
             $table->smallInteger('status')->default(1)->comment('0 = closed, 1 = open');

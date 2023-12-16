@@ -25,7 +25,7 @@
                             <div class="col-md-5 ml-md-auto text-right my-4">
                                 {{-- {{dd($applicant->id)}} --}}
                                 <a href="{{route('admin.call-for-interview', ['job'=>$applicant->job, 'applicant'=>$applicant])}}" class="btn btn-primary">Call For Interview</a>
-                                <a href="{{route('admin.destroy.applicants', $applicant)}}" class="btn btn-danger">Delete Application</a>
+                                {{-- <a href="{{route('admin.destroy.applicants', $applicant)}}" class="btn btn-danger">Delete Application</a> --}}
                             </div>
                         </div>
                     </div>

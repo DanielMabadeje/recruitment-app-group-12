@@ -34,7 +34,8 @@ class Applicant extends Model
 
     public function interview()
     {
-        return $this->belongsTo(Interview::class);
+        // return $this->belongsTo(Interview::class);
+        return $this->hasOne(Interview::class, 'application_id');
     }
 
     public function accept()

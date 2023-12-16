@@ -66,7 +66,7 @@
                                                 <div class="d-flex">
                                                     <a href="{{route('admin.applicants.show', $applicant)}}" class="  m-2"><i class="fa fa-eye"></i></a>
                                                     {{-- <a href="" class="btn btn-primary text-white m-2">Call for Interview</a> --}}
-                                                    <a href="{{route('admin.destroy.applicants', $applicant)}}" class="text-danger m-2"><i class="fa fa-trash"></i></a>
+                                                    {{-- <a href="{{route('admin.destroy.applicants', $applicant)}}" class="text-danger m-2"><i class="fa fa-trash"></i></a> --}}
                                                 </div>
                                             </td>
                                         </tr>
